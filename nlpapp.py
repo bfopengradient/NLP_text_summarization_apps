@@ -14,11 +14,11 @@ def get_model():
 	tokenizer=BartTokenizer.from_pretrained('facebook/bart-large-cnn')
 	model=BartForConditionalGeneration.from_pretrained('facebook/bart-large-cnn')
 	return tokenizer,model
-#once run runs model and tokenizer are cached
+#once run are cached
 tokenizer,model= get_model() 
 
 
-#use pretrained model and tokenizer to produce summary tokens and then decode thise summarized tokens 
+#Use pretrained model and tokenizer to produce summary tokens and then decode these summarized tokens 
 @st.cache(allow_output_mutation=True)
 def summarizer(original_text):
 	inputs = tokenizer.batch_encode_plus([original_text],return_tensors='pt')
@@ -36,8 +36,6 @@ def main():
 	st.title("Summarize text")
 
 	# Summarization
-	
-
 	message = st.text_area("Enter Text")	 
 	if st.button("Summarize"):
 			 
@@ -45,11 +43,7 @@ def main():
 			#st.write(summary_result)
 
 	
-			st.success(summary_result)
-
-
-	 
-	
+			st.success(summary_result)	
 
 if __name__ == '__main__':
 	main()
