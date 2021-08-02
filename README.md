@@ -9,7 +9,7 @@ Both APPs allower the user to input text and have a model or models summarize th
 
 * nlpapp2.py: offers the user the BART model and also the LeX Rank model to summarize text. Lex_rank is much faster and a smaller model than BART. 
 
-Before running the app from the command line there is a requirements.txt file which contains the versions of python libraries used in both apps.
+Before running the app from the command line there is a requirements.txt file which contains the python libraries used in both apps. pip install the requirements.txt if needed ahead of running the apps.
 
 To run either app locally enter in your commandline:  streamlit run nlpapp.py or streamlit run nlpapp2.py
 
