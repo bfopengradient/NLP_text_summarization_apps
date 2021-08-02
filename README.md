@@ -1,6 +1,6 @@
 ### NLP_text_summarization_apps
 
-THere are two app, nlpapp.py and nlpapp2.py
+There are two apps: nlpapp.py and nlpapp2.py
 
 Both APPs allower the user to input text and have a model or models summarize the text.
 
