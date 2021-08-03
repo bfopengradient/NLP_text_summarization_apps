@@ -9,7 +9,7 @@ Both APPs allower the user to input text and have a model or models summarize th
 
 * nlpapp2.py: offers the user the BART model and also the LexRank model to summarize text. LexRank is a count based model. It is relatively faster than BART on larger passages of text but BART produces more insightful summaries.
 
-Before running the app from the command check with the requirements.txt file which contains the python libraries used in both apps. if needed , pip install the requirements.txt ahead of running the apps.
+Before running the app from the command check with the requirements.txt file which contains the python libraries used in both apps. If needed , pip install the requirements.txt ahead of running the apps.
 
 To run either app locally enter in your commandline:  streamlit run nlpapp.py or streamlit run nlpapp2.py
 
