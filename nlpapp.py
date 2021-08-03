@@ -6,15 +6,13 @@ import streamlit as st
 from streamlit import caching 
 from transformers import BartForConditionalGeneration, BartTokenizer, BartConfig
 
-#App works off large BART mdel. Model  is downloaded once the app runs and is cached. There are quicker models to summarize using generative text but results are good with ths model.
-
+#App works off large BART mdel. Model  is downloaded once the app runs and is cached.  
 #Loading the model and tokenizer for bart-large-cnn
 @st.cache(allow_output_mutation=True)
 def get_model():
 	tokenizer=BartTokenizer.from_pretrained('facebook/bart-large-cnn')
 	model=BartForConditionalGeneration.from_pretrained('facebook/bart-large-cnn')
 	return tokenizer,model
-#once run are cached
 tokenizer,model= get_model() 
 
 
@@ -26,9 +24,6 @@ def summarizer(original_text):
 	bart_summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
 	return bart_summary
 
- 
-
-
 def main():
 	""" NLP Based App with Streamlit """
 
@@ -37,13 +32,9 @@ def main():
 
 	# Summarization
 	message = st.text_area("Enter Text")	 
-	if st.button("Summarize"):
-			 
-			summary_result = summarizer(message)
-			#st.write(summary_result)
-
-	
-			st.success(summary_result)	
+	if st.button("Summarize"):			 
+		summary_result = summarizer(message)	
+		st.success(summary_result)	
 
 if __name__ == '__main__':
 	main()
