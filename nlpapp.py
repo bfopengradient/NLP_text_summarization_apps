@@ -6,7 +6,7 @@ import streamlit as st
 from streamlit import caching 
 from transformers import BartForConditionalGeneration, BartTokenizer, BartConfig
 
-#App works off large BART mdel. Model  is downloaded once the app runs and is cached.  
+#App works off large BART mdel. Model is downloaded once the app runs and is cached.   
 #Loading the model and tokenizer for bart-large-cnn
 @st.cache(allow_output_mutation=True)
 def get_model():
@@ -14,7 +14,6 @@ def get_model():
 	model=BartForConditionalGeneration.from_pretrained('facebook/bart-large-cnn')
 	return tokenizer,model
 tokenizer,model= get_model() 
-
 
 #Use pretrained model and tokenizer to produce summary tokens and then decode these summarized tokens 
 @st.cache(allow_output_mutation=True)
