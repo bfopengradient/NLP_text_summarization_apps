@@ -15,6 +15,7 @@ To run either app locally enter in your commandline:  streamlit run nlpapp.py or
 
 
 BART research paper: https://arxiv.org/abs/1910.13461
+
 LexRank research paper: https://www.cs.cmu.edu/afs/cs/project/jair/pub/volume22/erkan04a-html/erkan04a.html
 
 Aug/2021
