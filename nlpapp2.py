@@ -7,8 +7,8 @@ from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lex_rank import LexRankSummarizer
 
-#App works off two NLP models. The large BART model is downloaded once the app runs and is cached. Caching will enable you to import BART once and 
-#test the trained BART model on as much tesxt as is needed without having to upload the model ooevr and over. BTW The Lex_Rank model is much smaller and faster.
+#App uses two NLP models to summarzie text. The larger and slower BART model is downloaded once the app runs and is cached. Caching will enable you to 
+#test the trained BART model on as much tesxt as is needed without having to upload the model for each test. The Lex_Rank model is much smaller and faster.
 
 # Loading the model and tokenizer for bart-large-cnn
 @st.cache(allow_output_mutation=True)
@@ -16,9 +16,8 @@ def get_model():
 	tokenizer=BartTokenizer.from_pretrained('facebook/bart-large-cnn')
 	model=BartForConditionalGeneration.from_pretrained('facebook/bart-large-cnn')
 	return tokenizer,model
-#oonce run runs model and tokenizer are cached
+#Run BART model 
 tokenizer,model= get_model() 
-
 
 #Use pretrained model and tonekizer to produce summary tokens and then decode thise summarized tokens 
 @st.cache(allow_output_mutation=True)
@@ -29,7 +28,7 @@ def summarizer(original_text):
 	#return BART summary
 	return bart_summary
 
-#Load in and use Lex_rank in one function.  Model is much smaller and faster
+#Load in and use LexRank in one function.  
 @st.cache(allow_output_mutation=True)
 def sumy_summarizer(original_text):
 	# Initializing the parser
@@ -54,7 +53,7 @@ def main():
 	message = st.text_area("Enter Text in box below")
 	st.write('#')
 
-	#provide choice of model. Bart is much slower than Lex_rank
+	#provide choice of model. 
 	col1, col2 = st.beta_columns(2)
 	with col1:
 		bart_button=st.button('Summarzie with BART model')
