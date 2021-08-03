@@ -2,7 +2,7 @@
 
 There are two apps: nlpapp.py and nlpapp2.py
 
-Both APPs allows the user to input text and have a model or models summarize the text.
+Both APPs allow the user to input text and have a model or models summarize the text.
 
 * nlpapp.py:  uses a neural net model to read text and generate a summary of the text passed to the app. The App uses a Large BART model from the Huggingface transformer library.The Model uploads once only when app is first run. After uploading you can test the pre-trained model on text as much as is needed. 
  
